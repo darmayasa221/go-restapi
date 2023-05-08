@@ -14,7 +14,7 @@ func (uc UserUseCase) GetUserUseCase() interface{} {
 	return users
 }
 
-func (uc UserUseCase) PostUserUseCase(p userentities.User) userentities.User {
+func (uc UserUseCase) PostUserUseCase(p *userentities.User) *userentities.User {
 	user := uc.PostUser(p)
 	return user
 }

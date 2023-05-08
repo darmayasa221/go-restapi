@@ -26,10 +26,10 @@ func (h UserHandlers) PostUserHandler(c *gin.Context) {
 	var p userentities.User
 	c.BindJSON(&p)
 
-	user := h.uc.PostUserUseCase(p)
+	user := h.uc.PostUserUseCase(&p)
 
 	c.JSON(201, gin.H{
 		"message": "success user post user handler",
-		"data":    user,
+		"data":    *user,
 	})
 }
