@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	userusecase "github.com/darmayasa221/go-restapi/Applications/UseCase/user"
+	userentities "github.com/darmayasa221/go-restapi/Domain/user/entities"
 	"github.com/gin-gonic/gin"
 )
 
@@ -21,8 +22,12 @@ func (h UserHandlers) GetUserHandler(c *gin.Context) {
 }
 
 func (h UserHandlers) PostUserHandler(c *gin.Context) {
-	fmt.Println("post user Handler")
-	user := h.uc.PostUserUseCase()
+	// get payload from client
+	var p userentities.User
+	c.BindJSON(&p)
+
+	user := h.uc.PostUserUseCase(p)
+
 	c.JSON(201, gin.H{
 		"message": "success user post user handler",
 		"data":    user,

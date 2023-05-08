@@ -14,12 +14,8 @@ func (u UserRepositoriesPostgresql) GetUsers() interface{} {
 	return users
 }
 
-func (u UserRepositoriesPostgresql) PostUser() userentities.User {
-	userEntitis := userentities.User{
-		Name: "cobak",
-		Age:  20,
-	}
-	userModel := models.Users{User: userEntitis}
+func (u UserRepositoriesPostgresql) PostUser(p userentities.User) userentities.User {
+	userModel := models.Users{User: p}
 	database.DB.Create(&userModel)
-	return userEntitis
+	return p
 }

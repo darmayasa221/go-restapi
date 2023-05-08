@@ -4,5 +4,5 @@ import userentities "github.com/darmayasa221/go-restapi/Domain/user/entities"
 
 type UserRepositories interface {
 	GetUsers() interface{}
-	PostUser() userentities.User
+	PostUser(p userentities.User) userentities.User
 }
