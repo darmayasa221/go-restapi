@@ -2,7 +2,7 @@ package container
 
 import (
 	userusecase "github.com/darmayasa221/go-restapi/Applications/UseCase/user"
-	userrepositoriespostgresql "github.com/darmayasa221/go-restapi/Infrastructures/repositories/postgresql"
+	userrepositoryespostgresql "github.com/darmayasa221/go-restapi/Infrastructures/repository/postgresql"
 )
 
 type container struct {
@@ -13,9 +13,9 @@ var Container container
 
 func CreateContainer() {
 	// initialization service locator
-	userRepositoriesPostgresql := &userrepositoriespostgresql.UserRepositoriesPostgresql{}
+	userRepositoryPostgresql := &userrepositoryespostgresql.UserRepositoryPostgresql{}
 	// usecase
-	userUseCase := &userusecase.UserUseCase{UserRepositories: userRepositoriesPostgresql}
+	userUseCase := &userusecase.UserUseCase{UserRepository: userRepositoryPostgresql}
 	// initialization on Contianer
 	Container.UserUseCase = *userUseCase
 }

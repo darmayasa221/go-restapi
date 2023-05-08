@@ -1,4 +1,4 @@
-package userrepositoriespostgresql
+package userrepositorypostgresql
 
 import (
 	userentities "github.com/darmayasa221/go-restapi/Domain/user/entities"
@@ -6,15 +6,15 @@ import (
 	"github.com/darmayasa221/go-restapi/Infrastructures/models"
 )
 
-type UserRepositoriesPostgresql struct{}
+type UserRepositoryPostgresql struct{}
 
-func (u UserRepositoriesPostgresql) GetUsers() interface{} {
+func (u UserRepositoryPostgresql) GetUsers() interface{} {
 	users := []map[string]interface{}{}
 	database.DB.Table("users").Find(&users)
 	return users
 }
 
-func (u UserRepositoriesPostgresql) PostUser(p userentities.User) userentities.User {
+func (u UserRepositoryPostgresql) PostUser(p userentities.User) userentities.User {
 	userModel := models.Users{User: p}
 	database.DB.Create(&userModel)
 	return p
