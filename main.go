@@ -22,8 +22,8 @@ func main() {
 
 	route := gin.Default()
 
-	userApi := route.Group("/user")
-	users.Routes(userApi, &c.UserUseCase)
+	user := route.Group("/user")
+	users.Routes(user, &c.UserUseCase)
 
 	route.Run()
 }
