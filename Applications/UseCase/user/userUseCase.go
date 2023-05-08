@@ -10,7 +10,7 @@ type UserUseCase struct {
 }
 
 func (uc UserUseCase) GetUserUseCase() interface{} {
-	users := uc.GetUser()
+	users := uc.GetUsers()
 	return users
 }
 

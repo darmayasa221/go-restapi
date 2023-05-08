@@ -5,10 +5,10 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func Routes(r *gin.RouterGroup, uc userusecase.UserUseCase) {
-	uh := UserHandlers{
-		uc: uc,
-	}
-	r.GET("/", uh.GetUserHandler)
-	r.POST("/", uh.PostUserHandler)
+func Routes(r *gin.RouterGroup, uc *userusecase.UserUseCase) {
+	// inject usescase at handler
+	h := UserHandlers{uc: uc}
+	//
+	r.GET("/", h.GetUserHandler)
+	r.POST("/", h.PostUserHandler)
 }

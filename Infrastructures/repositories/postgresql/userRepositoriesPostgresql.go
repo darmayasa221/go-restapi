@@ -8,18 +8,18 @@ import (
 
 type UserRepositoriesPostgresql struct{}
 
-func (u UserRepositoriesPostgresql) GetUser() interface{} {
+func (u UserRepositoriesPostgresql) GetUsers() interface{} {
 	users := []map[string]interface{}{}
 	database.DB.Table("users").Find(&users)
 	return users
 }
 
 func (u UserRepositoriesPostgresql) PostUser() userentities.User {
-	us := userentities.User{
+	userEntitis := userentities.User{
 		Name: "cobak",
 		Age:  20,
 	}
-	user := models.Users{User: us}
-	database.DB.Create(&user)
-	return us
+	userModel := models.Users{User: userEntitis}
+	database.DB.Create(&userModel)
+	return userEntitis
 }
