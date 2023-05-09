@@ -6,10 +6,10 @@ import (
 )
 
 type container struct {
-	UserUseCase userusecase.UserUseCase
+	UserUseCase *userusecase.UserUseCase
 }
 
-var Container container
+var Container *container = &container{}
 
 func CreateContainer() {
 	// initialization service locator
@@ -17,5 +17,5 @@ func CreateContainer() {
 	// usecase
 	userUseCase := &userusecase.UserUseCase{UserRepository: userRepositoryPostgresql}
 	// initialization on Contianer
-	Container.UserUseCase = *userUseCase
+	Container.UserUseCase = userUseCase
 }
