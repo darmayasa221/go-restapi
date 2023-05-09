@@ -14,7 +14,14 @@ func (uc UserUseCase) GetUserUseCase() interface{} {
 	return users
 }
 
-func (uc UserUseCase) PostUserUseCase(p *userentities.User) *userentities.User {
+func (uc UserUseCase) PostUserUseCase(p *userentities.User) (*userentities.User, error) {
+	// validation payload
+	err := userentities.ValidationPayload()
+
+	if err != nil {
+		return p, err
+	}
+	// validation success
 	user := uc.PostUser(p)
-	return user
+	return user, nil
 }
