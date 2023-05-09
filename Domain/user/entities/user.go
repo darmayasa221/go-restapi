@@ -17,5 +17,6 @@ func ValidationPayload() error {
 	if len(n) == 0 {
 		return errors.New("not contain needed property")
 	}
+	U.Name = n
 	return nil
 }
