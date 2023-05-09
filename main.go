@@ -5,7 +5,6 @@ import (
 	"github.com/darmayasa221/go-restapi/Infrastructures/database"
 	"github.com/darmayasa221/go-restapi/Infrastructures/loadEnv"
 	"github.com/darmayasa221/go-restapi/Interfaces/http/api/users"
-
 	"github.com/gin-gonic/gin"
 )
 
@@ -19,11 +18,10 @@ func init() {
 func main() {
 	// service locator
 	c := container.Container
-
 	route := gin.Default()
 
 	user := route.Group("/user")
-	users.Routes(user, &c.UserUseCase)
+	users.Routes(user, c.UserUseCase)
 
 	route.Run()
 }
