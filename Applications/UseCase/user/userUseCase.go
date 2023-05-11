@@ -9,7 +9,7 @@ type UserUseCase struct {
 	userrepository.UserRepository
 }
 
-func (uc UserUseCase) GetUserUseCase() interface{} {
+func (uc UserUseCase) GetUsersUseCase() interface{} {
 	users := uc.GetUsers()
 	return users
 }
