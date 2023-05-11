@@ -13,7 +13,7 @@ type UserHandlers struct {
 }
 
 func (h UserHandlers) GetUserHandler(c *gin.Context) {
-	users := h.uc.GetUserUseCase()
+	users := h.uc.GetUsersUseCase()
 	c.JSON(200, gin.H{
 		"message": "success user get user handler",
 		"data":    users,
