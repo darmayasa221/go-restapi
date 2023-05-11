@@ -1,2 +1,3 @@
 go-restapi
 .env
+coverage
