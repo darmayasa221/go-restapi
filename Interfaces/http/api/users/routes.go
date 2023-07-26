@@ -9,6 +9,7 @@ func Routes(r *gin.RouterGroup, uc *userusecase.UserUseCase) {
 	// inject usescase at handler
 	h := UserHandlers{uc: uc}
 	//
-	r.GET("/", h.GetUserHandler)
+	r.GET("/one", h.GetUserHandler)
+	r.GET("/", h.GetUsersHandler)
 	r.POST("/", h.PostUserHandler)
 }

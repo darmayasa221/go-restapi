@@ -25,3 +25,7 @@ func (uc UserUseCase) PostUserUseCase(p *userentities.User) (*userentities.User,
 	user := uc.PostUser(p)
 	return user, nil
 }
+
+func (uc UserUseCase) GetUserUseCase() {
+	uc.GetUser()
+}

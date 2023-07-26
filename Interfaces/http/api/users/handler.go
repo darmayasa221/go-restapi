@@ -12,7 +12,7 @@ type UserHandlers struct {
 	uc *userusecase.UserUseCase
 }
 
-func (h UserHandlers) GetUserHandler(c *gin.Context) {
+func (h UserHandlers) GetUsersHandler(c *gin.Context) {
 	users := h.uc.GetUsersUseCase()
 	c.JSON(200, gin.H{
 		"message": "success user get user handler",
@@ -34,5 +34,12 @@ func (h UserHandlers) PostUserHandler(c *gin.Context) {
 	c.JSON(201, gin.H{
 		"message": "success user post user handler",
 		"data":    *user,
+	})
+}
+
+func (h UserHandlers) GetUserHandler(c *gin.Context) {
+	h.uc.GetUserUseCase()
+	c.JSON(200, gin.H{
+		"message": "success user get user handler",
 	})
 }

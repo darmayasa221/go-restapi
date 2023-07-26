@@ -26,6 +26,10 @@ func (m mockUserRepository) PostUser(p *userentities.User) *userentities.User {
 	return p
 }
 
+func (m mockUserRepository) GetUser() {
+
+}
+
 func TestUserUseCase(t *testing.T) {
 	t.Run("get users usecase", func(t *testing.T) {
 		// Arrange
